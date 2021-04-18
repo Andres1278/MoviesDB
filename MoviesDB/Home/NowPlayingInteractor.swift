@@ -8,12 +8,12 @@
 
 import Foundation
 
-class HomeInteractor: HomeInteractorInputProtocol {
+class NowPlayingInteractor: NowPlayingInteractorInputProtocol {
     
     // MARK: Properties
-    weak var presenter: HomeInteractorOutputProtocol?
-    var localDatamanager: HomeLocalDataManagerInputProtocol?
-    var remoteDatamanager: HomeRemoteDataManagerInputProtocol?
+    weak var presenter: NowPlayingInteractorOutputProtocol?
+    var localDatamanager: NowPlayingLocalDataManagerInputProtocol?
+    var remoteDatamanager: NowPlayingRemoteDataManagerInputProtocol?
 
     
     func getRemoteData() {
@@ -21,7 +21,7 @@ class HomeInteractor: HomeInteractorInputProtocol {
     }
 }
 
-extension HomeInteractor: HomeRemoteDataManagerOutputProtocol {
+extension NowPlayingInteractor: NowPlayingRemoteDataManagerOutputProtocol {
     func callBackData(with response: MovieQueryResponse<Movie>) {
         presenter?.interactorCallBack(withData: response)
     }

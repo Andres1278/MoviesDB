@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  NowPlayingController.swift
 //  MoviesDB
 //
 //  Created by Pedro Andres Villamil on 16/04/21.
@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class HomeViewController: UIViewController {
+class NowPlayingController: UIViewController {
 
     @IBOutlet weak var collectioView: UICollectionView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     // MARK: Properties
-    var presenter: HomePresenterProtocol?
+    var presenter: NowPlayingPresenterProtocol?
     var response: MovieQueryResponse<Movie>?
     var moviesToShow = [Movie]()
     // MARK: Lifecycle
@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension NowPlayingController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return moviesToShow.count
@@ -46,7 +46,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-extension HomeViewController: HomeViewProtocol {
+extension NowPlayingController: NowPlayingViewProtocol {
     
    
     

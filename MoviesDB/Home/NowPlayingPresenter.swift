@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-class HomePresenter  {
+class NowPlayingPresenter  {
     
     // MARK: Properties
-    weak var view: HomeViewProtocol?
-    var interactor: HomeInteractorInputProtocol?
-    var wireFrame: HomeWireFrameProtocol?
+    weak var view: NowPlayingViewProtocol?
+    var interactor: NowPlayingInteractorInputProtocol?
+    var wireFrame: NowPlayingWireFrameProtocol?
     
 }
 
-extension HomePresenter: HomePresenterProtocol {
+extension NowPlayingPresenter: NowPlayingPresenterProtocol {
   
     // TODO: implement presenter methods
     func viewDidLoadViper() {
@@ -27,7 +27,7 @@ extension HomePresenter: HomePresenterProtocol {
     }
 }
 
-extension HomePresenter: HomeInteractorOutputProtocol {
+extension NowPlayingPresenter: NowPlayingInteractorOutputProtocol {
     func interactorCallBack(withData: MovieQueryResponse<Movie>) {
         view?.presenterCallBackToView(with: withData)
         view?.stopAndHideSpinner()

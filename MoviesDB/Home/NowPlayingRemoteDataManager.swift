@@ -8,9 +8,9 @@
 
 import Foundation
 
-class HomeRemoteDataManager:HomeRemoteDataManagerInputProtocol {
+class NowPlayingRemoteDataManager:NowPlayingRemoteDataManagerInputProtocol {
     
-    var remoteRequestHandler: HomeRemoteDataManagerOutputProtocol?
+    var remoteRequestHandler: NowPlayingRemoteDataManagerOutputProtocol?
     
     func getNowPlayingData() {
         ServiceManger.request(to: API.url(for: .nowPlaying), parameters: API.defaultRequestParameters, headers: API.defaultRequestHeaders) { (result:ServiceManger.CompletionResult<MovieQueryResponse<Movie>>) in

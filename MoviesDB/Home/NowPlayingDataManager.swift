@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HomeLocalDataManager:HomeLocalDataManagerInputProtocol {
+class NowPlayingDataManager:NowPlayingLocalDataManagerInputProtocol {
     
     
 }

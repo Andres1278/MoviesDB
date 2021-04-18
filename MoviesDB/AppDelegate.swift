@@ -16,10 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //        MARK: Init VIPER Module
-        let homeView = HomeWireFrame.createHomeModule()
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = homeView
-        window?.makeKeyAndVisible()
+        let nowPlayingView = NowPlayingWireFrame.createHomeModule()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let tabBar = TabBarWireframe(nowPlayingView)
+        tabBar.installIntoWindow(window: window)
+        self.window = window
         return true
     }
 
