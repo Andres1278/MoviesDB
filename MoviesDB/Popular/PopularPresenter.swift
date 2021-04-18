@@ -19,7 +19,6 @@ class PopularPresenter  {
 
 extension PopularPresenter: PopularPresenterProtocol {
     
-    
     // TODO: implement presenter methods
     func viewDidLoad() {
         interactor?.getRemoteData()
@@ -28,6 +27,11 @@ extension PopularPresenter: PopularPresenterProtocol {
     
     func showDetailView(with movie: Movie) {
         wireFrame?.presentDetailView(from: self.view!, with: movie)
+    }
+    
+    func loadNextPage(from page: Int) {
+        view?.starAndShowSpinner()
+        interactor?.getNextPage(from: page)
     }
 }
 

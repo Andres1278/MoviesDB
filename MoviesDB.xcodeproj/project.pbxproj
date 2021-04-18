@@ -46,6 +46,7 @@
 		EBAF1D3E262BD9530065A367 /* DetailRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF1D37262BD9530065A367 /* DetailRemoteDataManager.swift */; };
 		EBAF1D3F262BD9530065A367 /* DetailWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF1D38262BD9530065A367 /* DetailWireFrame.swift */; };
 		EBAF1D48262BDB8F0065A367 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAF1D47262BDB8F0065A367 /* DetailView.storyboard */; };
+		EBAF1D4B262C87040065A367 /* CollectionViewSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF1D4A262C87040065A367 /* CollectionViewSearch.swift */; };
 		EBB77BA22629160300AC2D22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB77BA12629160300AC2D22 /* AppDelegate.swift */; };
 		EBB77BA92629160300AC2D22 /* NowPlayingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB77BA72629160300AC2D22 /* NowPlayingView.storyboard */; };
 		EBB77BAB2629160700AC2D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB77BAA2629160700AC2D22 /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		EBAF1D37262BD9530065A367 /* DetailRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRemoteDataManager.swift; sourceTree = "<group>"; };
 		EBAF1D38262BD9530065A367 /* DetailWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWireFrame.swift; sourceTree = "<group>"; };
 		EBAF1D47262BDB8F0065A367 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		EBAF1D4A262C87040065A367 /* CollectionViewSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSearch.swift; sourceTree = "<group>"; };
 		EBB77B9E2629160300AC2D22 /* MoviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB77BA12629160300AC2D22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBB77BA82629160300AC2D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NowPlayingView.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				EB08CE24262BD1C4003F35B5 /* PopularRemoteDataManager.swift */,
 				EB08CE25262BD1C4003F35B5 /* PopularWireFrame.swift */,
 				EB08CE43262BD2AA003F35B5 /* PopularView.storyboard */,
+				EBAF1D4A262C87040065A367 /* CollectionViewSearch.swift */,
 			);
 			path = Popular;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB08CE39262BD1F6003F35B5 /* UpcomingInteractor.swift in Sources */,
+				EBAF1D4B262C87040065A367 /* CollectionViewSearch.swift in Sources */,
 				EBAF1D3F262BD9530065A367 /* DetailWireFrame.swift in Sources */,
 				EBB77BA22629160300AC2D22 /* AppDelegate.swift in Sources */,
 				EB5F76D52629E3AB00200961 /* NowPlayingDataManager.swift in Sources */,
@@ -578,7 +582,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7577XXK6FR;
 				INFOPLIST_FILE = MoviesDB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +603,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7577XXK6FR;
 				INFOPLIST_FILE = MoviesDB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

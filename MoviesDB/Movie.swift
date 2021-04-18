@@ -14,6 +14,7 @@ struct Movie: Codable {
     var title: String?
     var overview: String?
     var poster: String?
+    var original_language: String?
     private var voteAverage: Decimal
     var rating: NSDecimalNumber {
         get { return NSDecimalNumber(decimal: voteAverage) }

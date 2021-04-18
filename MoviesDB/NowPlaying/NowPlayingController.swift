@@ -17,6 +17,7 @@ class NowPlayingController: UIViewController {
     var presenter: NowPlayingPresenterProtocol?
     var response: MovieQueryResponse<Movie>?
     var moviesToShow = [Movie]()
+    let numberOfColumns: CGFloat = 2
     // MARK: Lifecycle
 
     override func viewDidLoad() {
@@ -43,6 +44,12 @@ extension NowPlayingController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter?.showDetailView(with: moviesToShow[indexPath.row])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenSize = UIScreen.main.bounds.size
+        let cellWidth = ((screenSize.width - (10 * (numberOfColumns - 1) ) - 30) / numberOfColumns) - 1
+        return CGSize(width: cellWidth.rounded() , height: 1.6 * cellWidth.rounded())
     }
 }
 

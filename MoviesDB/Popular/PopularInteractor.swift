@@ -18,6 +18,10 @@ class PopularInteractor: PopularInteractorInputProtocol {
     func getRemoteData() {
         remoteDatamanager?.getPopularData()
     }
+    
+    func getNextPage(from page: Int) {
+        remoteDatamanager?.getNextPage(from: page)
+    }
 }
 
 extension PopularInteractor: PopularRemoteDataManagerOutputProtocol {

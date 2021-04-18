@@ -20,6 +20,7 @@ class PopularWireFrame: PopularWireFrameProtocol {
             return UIViewController()
         }
         popularView.tabBarItem.title = "Populars"
+        popularView.tabBarItem.image = UIImage(systemName: "person.3.fill")
             let presenter: PopularPresenterProtocol & PopularInteractorOutputProtocol = PopularPresenter()
             let interactor: PopularInteractorInputProtocol & PopularRemoteDataManagerOutputProtocol = PopularInteractor()
             let localDataManager: PopularLocalDataManagerInputProtocol = PopularLocalDataManager()

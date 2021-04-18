@@ -23,6 +23,7 @@ class NowPlayingWireFrame: NowPlayingWireFrameProtocol {
             return UIViewController()
         }
         nowPlayingView.tabBarItem.title = "Now Playing"
+        nowPlayingView.tabBarItem.image = UIImage(systemName: "video.fill.badge.checkmark")
         let presenter: NowPlayingPresenterProtocol & NowPlayingInteractorOutputProtocol = NowPlayingPresenter()
         let interactor: NowPlayingInteractorInputProtocol & NowPlayingRemoteDataManagerOutputProtocol = NowPlayingInteractor()
         let localDataManager: NowPlayingLocalDataManagerInputProtocol = NowPlayingDataManager()

@@ -20,6 +20,7 @@ class UpcomingWireFrame: UpcomingWireFrameProtocol {
             return UIViewController()
         }
         upcomingView.tabBarItem.title = "Upcoming"
+        upcomingView.tabBarItem.image = UIImage(systemName: "calendar.badge.clock")
             let presenter: UpcomingPresenterProtocol & UpcomingInteractorOutputProtocol = UpcomingPresenter()
             let interactor: UpcomingInteractorInputProtocol & UpcomingRemoteDataManagerOutputProtocol = UpcomingInteractor()
             let localDataManager: UpcomingLocalDataManagerInputProtocol = UpcomingLocalDataManager()

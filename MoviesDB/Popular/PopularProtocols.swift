@@ -31,6 +31,7 @@ protocol PopularPresenterProtocol: class {
     
     func viewDidLoad()
     func showDetailView(with movie: Movie)
+    func loadNextPage(from page: Int)
 }
 
 protocol PopularInteractorOutputProtocol: class {
@@ -44,6 +45,7 @@ protocol PopularInteractorInputProtocol: class {
     var localDatamanager: PopularLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: PopularRemoteDataManagerInputProtocol? { get set }
     func getRemoteData()
+    func getNextPage(from page: Int)
 }
 
 protocol PopularDataManagerInputProtocol: class {
@@ -54,6 +56,7 @@ protocol PopularRemoteDataManagerInputProtocol: class {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: PopularRemoteDataManagerOutputProtocol? { get set }
     func getPopularData()
+    func getNextPage(from page: Int)
 }
 
 protocol PopularRemoteDataManagerOutputProtocol: class {

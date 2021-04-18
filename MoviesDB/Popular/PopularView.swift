@@ -14,9 +14,15 @@ class PopularView: UIViewController {
     // MARK: Properties
     var presenter: PopularPresenterProtocol?
     var response: MovieQueryResponse<Movie>?
-    var moviesToShow = [Movie]()
+    var moviesToShow: [Movie] = []
     var totalPages: Int?
-    var totalResult: Int?
+    var totalResults: Int?
+    var currentFilter: String?
+    var page: Int?
+    
+    // Search
+    var filtered: [Movie] = []
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -29,15 +35,25 @@ class PopularView: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "MovieViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
     }
+    
+    func loadNextPage() {
+        guard let actualPage = page else {
+            return
+        }
+        presenter?.loadNextPage(from: actualPage)
+    }
 }
 
 extension PopularView: PopularViewProtocol {
+    
     func presenterCallBackToView(with data: MovieQueryResponse<Movie>) {
         response = data
-        moviesToShow = data.results
+        moviesToShow.append(contentsOf: data.results)
+        self.applyFilter(with: self.currentFilter ?? "")
         totalPages = data.total_pages
-        totalResult = data.total_results
-        print("----- POPULAR View ----- \n \(response)")
+        totalResults = data.total_results
+        page = data.page
+        print("----- POPULAR View ----- [PAV] \(moviesToShow.count)")
         collectionView.reloadData()
     }
     
@@ -59,8 +75,8 @@ extension PopularView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieViewCell
-        if let pages = totalResult, indexPath.row == moviesToShow.count - 1 && moviesToShow.count < pages {
-//            loadNextPage()
+        if indexPath.row == moviesToShow.count - 1 {
+           loadNextPage()
         }
         cell.configure(with: moviesToShow[indexPath.row])
         return cell
@@ -70,4 +86,37 @@ extension PopularView: UICollectionViewDelegate, UICollectionViewDataSource {
         presenter?.showDetailView(with: moviesToShow[indexPath.row])
     }
     
+}
+
+extension PopularView: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        applyFilter(with: text)
+    }
+    
+    func applyFilter(with text: String) {
+        currentFilter = text
+        guard text != "" else {
+            filtered = moviesToShow
+            collectionView.reloadData()
+            return
+        }
+        filtered = moviesToShow.filter {
+            guard $0.title!.lowercased().contains(text.lowercased()) else { return false }
+            return true
+        }
+        collectionView.reloadData()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        applyFilter(with: text)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SearchBar", for: indexPath)
+        return searchView
+    }
 }
