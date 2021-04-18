@@ -17,8 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        MARK: Init VIPER Module
         let nowPlayingView = NowPlayingWireFrame.createHomeModule()
+        let upcomingView = UpcomingWireFrame.createUpcomingModule()
+        let popularView = PopularWireFrame.createPopularModule()
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let tabBar = TabBarWireframe(nowPlayingView)
+        let tabBar = TabBarWireframe(nowPlayingView, popularView, upcomingView)
+        
         tabBar.installIntoWindow(window: window)
         self.window = window
         return true
