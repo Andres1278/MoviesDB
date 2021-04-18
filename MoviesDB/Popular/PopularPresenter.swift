@@ -20,9 +20,13 @@ class PopularPresenter  {
 extension PopularPresenter: PopularPresenterProtocol {
     // TODO: implement presenter methods
     func viewDidLoad() {
+        interactor?.getRemoteData()
     }
 }
 
 extension PopularPresenter: PopularInteractorOutputProtocol {
     // TODO: implement interactor output methods
+    func interactorCallBack(with data: MovieQueryResponse<Movie>) {
+        view?.presenterCallBackToView(with: data)
+    }
 }

@@ -12,6 +12,7 @@ import UIKit
 protocol UpcomingViewProtocol: class {
     // PRESENTER -> VIEW
     var presenter: UpcomingPresenterProtocol? { get set }
+    func presenterCallBackToView(with data: MovieQueryResponse<Movie>)
 }
 
 protocol UpcomingWireFrameProtocol: class {
@@ -30,6 +31,7 @@ protocol UpcomingPresenterProtocol: class {
 
 protocol UpcomingInteractorOutputProtocol: class {
 // INTERACTOR -> PRESENTER
+    func interarCallBackToPresenter(with data: MovieQueryResponse<Movie>)
 }
 
 protocol UpcomingInteractorInputProtocol: class {
@@ -37,6 +39,7 @@ protocol UpcomingInteractorInputProtocol: class {
     var presenter: UpcomingInteractorOutputProtocol? { get set }
     var localDatamanager: UpcomingLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: UpcomingRemoteDataManagerInputProtocol? { get set }
+    func getRemoteData()
 }
 
 protocol UpcomingDataManagerInputProtocol: class {
@@ -46,10 +49,12 @@ protocol UpcomingDataManagerInputProtocol: class {
 protocol UpcomingRemoteDataManagerInputProtocol: class {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: UpcomingRemoteDataManagerOutputProtocol? { get set }
+    func getUpcomingData()
 }
 
 protocol UpcomingRemoteDataManagerOutputProtocol: class {
     // REMOTEDATAMANAGER -> INTERACTOR
+    func callBackToInteractor(with data: MovieQueryResponse<Movie>)
 }
 
 protocol UpcomingLocalDataManagerInputProtocol: class {

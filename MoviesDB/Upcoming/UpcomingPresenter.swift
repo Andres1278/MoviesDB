@@ -20,9 +20,14 @@ class UpcomingPresenter  {
 extension UpcomingPresenter: UpcomingPresenterProtocol {
     // TODO: implement presenter methods
     func viewDidLoad() {
+        interactor?.getRemoteData()
     }
 }
 
 extension UpcomingPresenter: UpcomingInteractorOutputProtocol {
     // TODO: implement interactor output methods
+    func interarCallBackToPresenter(with data: MovieQueryResponse<Movie>) {
+        view?.presenterCallBackToView(with: data)
+    }
+    
 }

@@ -14,9 +14,17 @@ class UpcomingInteractor: UpcomingInteractorInputProtocol {
     weak var presenter: UpcomingInteractorOutputProtocol?
     var localDatamanager: UpcomingLocalDataManagerInputProtocol?
     var remoteDatamanager: UpcomingRemoteDataManagerInputProtocol?
-
+    
+    func getRemoteData() {
+        remoteDatamanager?.getUpcomingData()
+    }
+    
 }
 
 extension UpcomingInteractor: UpcomingRemoteDataManagerOutputProtocol {
+    func callBackToInteractor(with data: MovieQueryResponse<Movie>) {
+        presenter?.interarCallBackToPresenter(with: data)
+    }
+    
     // TODO: Implement use case methods
 }

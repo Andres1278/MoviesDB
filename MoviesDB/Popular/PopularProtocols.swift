@@ -12,6 +12,7 @@ import UIKit
 protocol PopularViewProtocol: class {
     // PRESENTER -> VIEW
     var presenter: PopularPresenterProtocol? { get set }
+    func presenterCallBackToView(with data: MovieQueryResponse<Movie>)
 }
 
 protocol PopularWireFrameProtocol: class {
@@ -30,6 +31,7 @@ protocol PopularPresenterProtocol: class {
 
 protocol PopularInteractorOutputProtocol: class {
 // INTERACTOR -> PRESENTER
+    func interactorCallBack(with data: MovieQueryResponse<Movie>)
 }
 
 protocol PopularInteractorInputProtocol: class {
@@ -37,6 +39,7 @@ protocol PopularInteractorInputProtocol: class {
     var presenter: PopularInteractorOutputProtocol? { get set }
     var localDatamanager: PopularLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: PopularRemoteDataManagerInputProtocol? { get set }
+    func getRemoteData()
 }
 
 protocol PopularDataManagerInputProtocol: class {
@@ -46,10 +49,12 @@ protocol PopularDataManagerInputProtocol: class {
 protocol PopularRemoteDataManagerInputProtocol: class {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: PopularRemoteDataManagerOutputProtocol? { get set }
+    func getPopularData()
 }
 
 protocol PopularRemoteDataManagerOutputProtocol: class {
     // REMOTEDATAMANAGER -> INTERACTOR
+    func callBackData(with data: MovieQueryResponse<Movie>)
 }
 
 protocol PopularLocalDataManagerInputProtocol: class {

@@ -15,8 +15,15 @@ class PopularInteractor: PopularInteractorInputProtocol {
     var localDatamanager: PopularLocalDataManagerInputProtocol?
     var remoteDatamanager: PopularRemoteDataManagerInputProtocol?
 
+    func getRemoteData() {
+        remoteDatamanager?.getPopularData()
+    }
 }
 
 extension PopularInteractor: PopularRemoteDataManagerOutputProtocol {
+    func callBackData(with data: MovieQueryResponse<Movie>) {
+        presenter?.interactorCallBack(with: data)
+    }
+    
     // TODO: Implement use case methods
 }
