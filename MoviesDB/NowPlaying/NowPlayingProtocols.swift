@@ -21,7 +21,7 @@ protocol NowPlayingWireFrameProtocol: class {
     // PRESENTER -> WIREFRAME
     static func createHomeModule() -> UIViewController
     
-    func presentDetailView(from view: UIViewController, with movie: Movie)
+    func presentDetailView(from view: NowPlayingViewProtocol, with movie: Movie)
 }
 
 protocol NowPlayingPresenterProtocol: class {
@@ -31,6 +31,7 @@ protocol NowPlayingPresenterProtocol: class {
     var wireFrame: NowPlayingWireFrameProtocol? { get set }
     
     func viewDidLoadViper()
+    func showDetailView(with movie: Movie)
 }
 
 protocol NowPlayingInteractorOutputProtocol: class {

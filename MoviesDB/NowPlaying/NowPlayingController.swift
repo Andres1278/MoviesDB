@@ -42,7 +42,7 @@ extension NowPlayingController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        presenter?.showDetailView(with: moviesToShow[indexPath.row])
     }
 }
 

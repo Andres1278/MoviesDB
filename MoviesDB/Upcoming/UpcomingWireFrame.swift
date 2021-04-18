@@ -12,7 +12,7 @@ import UIKit
 class UpcomingWireFrame: UpcomingWireFrameProtocol {
     
     static var mainStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Upcoming", bundle: Bundle.main)
+        return UIStoryboard(name: "UpcomingView", bundle: Bundle.main)
     }
 
     class func createUpcomingModule() -> UIViewController {

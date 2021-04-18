@@ -12,7 +12,7 @@ import UIKit
 class PopularWireFrame: PopularWireFrameProtocol {
     
     static var mainStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Popular", bundle: Bundle.main)
+        return UIStoryboard(name: "PopularView", bundle: Bundle.main)
     }
 
     class func createPopularModule() -> UIViewController {

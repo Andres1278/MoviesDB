@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class NowPlayingWireFrame: NowPlayingWireFrameProtocol {
+   
+    
     
     static var mainStoryboard: UIStoryboard {
         return UIStoryboard(name: "NowPlayingView", bundle: Bundle.main)
@@ -41,9 +43,11 @@ class NowPlayingWireFrame: NowPlayingWireFrameProtocol {
     
     
     
-    func presentDetailView(from view: UIViewController, with movie: Movie) {
-        
+    func presentDetailView(from view: NowPlayingViewProtocol, with movie: Movie) {
+        let newDetail = DetailWireFrame.createDetailModule(with: movie)
+        if let viewController = view as? UIViewController {
+            viewController.present(newDetail, animated: true, completion: nil)
+        }
     }
-    
 }
 

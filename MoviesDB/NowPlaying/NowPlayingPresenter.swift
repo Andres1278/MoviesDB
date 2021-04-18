@@ -25,6 +25,12 @@ extension NowPlayingPresenter: NowPlayingPresenterProtocol {
         interactor?.getRemoteData()
         view?.starAndShowSpinner()
     }
+    
+    
+    func showDetailView(with movie: Movie) {
+        wireFrame?.presentDetailView(from: view!, with: movie)
+    }
+    
 }
 
 extension NowPlayingPresenter: NowPlayingInteractorOutputProtocol {
