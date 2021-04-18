@@ -21,13 +21,20 @@ extension UpcomingPresenter: UpcomingPresenterProtocol {
     // TODO: implement presenter methods
     func viewDidLoad() {
         interactor?.getRemoteData()
+        view?.starAndShowSpinner()
     }
+    
+    func showDetailView(with movie: Movie) {
+        wireFrame?.presentDetailView(from: self.view!, with: movie)
+    }
+    
 }
 
 extension UpcomingPresenter: UpcomingInteractorOutputProtocol {
     // TODO: implement interactor output methods
     func interarCallBackToPresenter(with data: MovieQueryResponse<Movie>) {
         view?.presenterCallBackToView(with: data)
+        view?.stopAndHideSpinner()
     }
     
 }

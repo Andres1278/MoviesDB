@@ -23,6 +23,6 @@ class NowPlayingInteractor: NowPlayingInteractorInputProtocol {
 
 extension NowPlayingInteractor: NowPlayingRemoteDataManagerOutputProtocol {
     func callBackData(with response: MovieQueryResponse<Movie>) {
-        presenter?.interactorCallBack(withData: response)
+        presenter?.interactorCallBack(with: response)
     }
 }

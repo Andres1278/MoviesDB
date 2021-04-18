@@ -36,7 +36,7 @@ protocol NowPlayingPresenterProtocol: class {
 
 protocol NowPlayingInteractorOutputProtocol: class {
 // INTERACTOR -> PRESENTER
-    func interactorCallBack(withData: MovieQueryResponse<Movie>) 
+    func interactorCallBack(with data: MovieQueryResponse<Movie>) 
 }
 
 protocol NowPlayingInteractorInputProtocol: class {

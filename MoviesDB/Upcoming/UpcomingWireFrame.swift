@@ -39,6 +39,11 @@ class UpcomingWireFrame: UpcomingWireFrameProtocol {
         
     }
     
-    
+    func presentDetailView(from view: UpcomingViewProtocol, with movie: Movie) {
+        let newDetail = DetailWireFrame.createDetailModule(with: movie)
+        if let viewController = view as? UIViewController {
+            viewController.present(newDetail, animated: true, completion: nil)
+        }
+    }
     
 }

@@ -13,11 +13,14 @@ protocol PopularViewProtocol: class {
     // PRESENTER -> VIEW
     var presenter: PopularPresenterProtocol? { get set }
     func presenterCallBackToView(with data: MovieQueryResponse<Movie>)
+    func starAndShowSpinner()
+    func stopAndHideSpinner()
 }
 
 protocol PopularWireFrameProtocol: class {
     // PRESENTER -> WIREFRAME
     static func createPopularModule() -> UIViewController
+    func presentDetailView(from view: PopularViewProtocol, with movie: Movie)
 }
 
 protocol PopularPresenterProtocol: class {
@@ -27,6 +30,7 @@ protocol PopularPresenterProtocol: class {
     var wireFrame: PopularWireFrameProtocol? { get set }
     
     func viewDidLoad()
+    func showDetailView(with movie: Movie)
 }
 
 protocol PopularInteractorOutputProtocol: class {

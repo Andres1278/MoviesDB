@@ -39,6 +39,12 @@ class PopularWireFrame: PopularWireFrameProtocol {
         
     }
     
+    func presentDetailView(from view: PopularViewProtocol, with movie: Movie) {
+        let newDetail = DetailWireFrame.createDetailModule(with: movie)
+        if let vc = view as? UIViewController {
+            vc.present(newDetail, animated: true, completion: nil)
+        }
+    }
     
     
 }

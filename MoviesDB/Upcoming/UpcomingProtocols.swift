@@ -13,11 +13,14 @@ protocol UpcomingViewProtocol: class {
     // PRESENTER -> VIEW
     var presenter: UpcomingPresenterProtocol? { get set }
     func presenterCallBackToView(with data: MovieQueryResponse<Movie>)
+    func starAndShowSpinner()
+    func stopAndHideSpinner()
 }
 
 protocol UpcomingWireFrameProtocol: class {
     // PRESENTER -> WIREFRAME
     static func createUpcomingModule() -> UIViewController
+    func presentDetailView(from view: UpcomingViewProtocol, with movie: Movie)
 }
 
 protocol UpcomingPresenterProtocol: class {
@@ -27,6 +30,7 @@ protocol UpcomingPresenterProtocol: class {
     var wireFrame: UpcomingWireFrameProtocol? { get set }
     
     func viewDidLoad()
+    func showDetailView(with movie: Movie)
 }
 
 protocol UpcomingInteractorOutputProtocol: class {

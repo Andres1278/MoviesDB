@@ -27,15 +27,15 @@ extension NowPlayingPresenter: NowPlayingPresenterProtocol {
     }
     
     
-    func showDetailView(with movie: Movie) {
-        wireFrame?.presentDetailView(from: view!, with: movie)
+    func showDetailView(with Movie: Movie) {
+        wireFrame?.presentDetailView(from: self.view!, with: Movie)
     }
     
 }
 
 extension NowPlayingPresenter: NowPlayingInteractorOutputProtocol {
-    func interactorCallBack(withData: MovieQueryResponse<Movie>) {
-        view?.presenterCallBackToView(with: withData)
+    func interactorCallBack(with data: MovieQueryResponse<Movie>) {
+        view?.presenterCallBackToView(with: data)
         view?.stopAndHideSpinner()
     }
     
