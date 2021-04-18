@@ -15,17 +15,13 @@ struct Movie: Codable {
     var overview: String?
     var poster: String?
     var original_language: String?
-    private var voteAverage: Decimal
-    var rating: NSDecimalNumber {
-        get { return NSDecimalNumber(decimal: voteAverage) }
-    }
+    var voteAverage: Double?
 
     init(id: Int, title: String, overview: String, poster: String, voteAverage: Decimal) {
         self.id = id
         self.title = title
         self.overview = overview
         self.poster = poster
-        self.voteAverage = voteAverage
     }
 
     func posterUrl() -> URL? {
@@ -37,6 +33,34 @@ struct Movie: Codable {
         case poster = "poster_path"
         case voteAverage = "vote_average"
     }
+}
+
+struct MovieDetail: Codable {
+    let budget: Int?
+    let original_title: String?
+    let overview: String?
+    let popularity: Double?
+    let release_date: String?
+    let revenue: Int?
+    let status: String?
+    let tagline: String?
+    let vote_average: Double?
+    let production_countries: [Production]?
+    let genres: [Gender]?
+    let original_language: String?
+    let poster_path: String?
+    
+    func posterUrl() -> URL? {
+        return URL(string: "\(API.imagesBaseURL)\(poster_path ?? "")")
+    }
+}
+
+struct Gender: Codable {
+    let name: String?
+}
+
+struct Production: Codable {
+    let name: String?
 }
 
 struct MovieQueryResponse<T: Codable> : Codable {

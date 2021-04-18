@@ -23,6 +23,7 @@ struct API {
         case popular = "/movie/popular"
         case topRated = "/movie/top_rated"
         case upcoming = "/movie/upcoming"
+        case movieDetail = "/movie"
     }
     
     static func url(for endpoint: Endpoint) -> String {

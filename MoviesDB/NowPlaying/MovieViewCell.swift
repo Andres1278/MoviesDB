@@ -23,7 +23,9 @@ class MovieViewCell: UICollectionViewCell {
         setupUI()
         titeLabel.text = movie.title
         languageLabel.text = movie.original_language ?? "EN"
-        guard let url = movie.posterUrl() else {
+        
+        
+        guard let url = movie.posterUrl(), let raiting = movie.voteAverage else {
             return
         }
         do {
@@ -32,6 +34,7 @@ class MovieViewCell: UICollectionViewCell {
         } catch {
             print("Can't find the image from url \(error.localizedDescription)")
         }
+        voteLabel.text = "\(raiting)"
         
     }
     
