@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kcU-1c-lzZ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="joi-LE-HXE">
                                     <size key="itemSize" width="192" height="128"/>
@@ -51,15 +51,25 @@
                                 </constraints>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Sex-oF-lOF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lAN-pF-dWv"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vhj-HW-Zbg" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="54r-o6-e1n"/>
                             <constraint firstItem="kcU-1c-lzZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="55v-7N-Fg9"/>
-                            <constraint firstItem="kcU-1c-lzZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9uF-3R-y7K"/>
+                            <constraint firstItem="Sex-oF-lOF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ABB-qi-gFa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kcU-1c-lzZ" secondAttribute="trailing" id="Pfi-zc-4V2"/>
                             <constraint firstItem="vhj-HW-Zbg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RCx-d7-S52"/>
+                            <constraint firstItem="Sex-oF-lOF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ULt-de-nf4"/>
+                            <constraint firstItem="kcU-1c-lzZ" firstAttribute="top" secondItem="Sex-oF-lOF" secondAttribute="bottom" id="YJS-WE-UA4"/>
+                            <constraint firstItem="Sex-oF-lOF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aDa-yt-Eqy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kcU-1c-lzZ" secondAttribute="bottom" id="qPm-Iw-Dkx"/>
                         </constraints>
                     </view>
@@ -67,6 +77,7 @@
                     <navigationItem key="navigationItem" id="qjj-xe-coO"/>
                     <connections>
                         <outlet property="collectioView" destination="kcU-1c-lzZ" id="37l-ro-4s4"/>
+                        <outlet property="searchBar" destination="Sex-oF-lOF" id="0L6-ZD-qPL"/>
                         <outlet property="spinner" destination="vhj-HW-Zbg" id="rPf-pz-LJy"/>
                     </connections>
                 </viewController>

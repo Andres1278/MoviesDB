@@ -40,8 +40,6 @@ class PopularView: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "MovieViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
-        let tap = UITapGestureRecognizer(target: self, action: #selector(PopularView.handleTap))
-        view.addGestureRecognizer(tap)
     }
     
     func loadNextPage() {
@@ -50,10 +48,6 @@ class PopularView: UIViewController {
         }
         isLoadingPage = true
         presenter?.loadNextPage(from: currentPage)
-    }
-    
-    @objc func handleTap() {
-        view.endEditing(true)
     }
 }
 
@@ -134,12 +128,5 @@ extension PopularView: UISearchBarDelegate {
         }
         collectionView.reloadData()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        let searchView: UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "SearchBar", for: indexPath)
-        return searchView
-    }
-    
     
 }

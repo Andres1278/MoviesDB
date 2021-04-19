@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,48 +18,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZhQ-Xe-RYy">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zkv-8W-3zg">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zkv-8W-3zg">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZBB-ps-tXd">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4el-Xd-qar">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="p3T-Mr-dEo">
                                 <rect key="frame" x="0.0" y="39" width="414" height="818"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OMr-tv-1DR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="edv-u4-WhW" id="wJ9-yc-NBC"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UjL-Fq-T70"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UjL-Fq-T70" firstAttribute="bottom" secondItem="ZhQ-Xe-RYy" secondAttribute="bottom" id="EkC-a8-bSg"/>
-                            <constraint firstItem="ZhQ-Xe-RYy" firstAttribute="top" secondItem="UjL-Fq-T70" secondAttribute="top" id="bII-fg-C3g"/>
+                            <constraint firstItem="OMr-tv-1DR" firstAttribute="trailing" secondItem="UjL-Fq-T70" secondAttribute="trailing" id="WZ0-ca-oRK"/>
+                            <constraint firstItem="OMr-tv-1DR" firstAttribute="top" secondItem="UjL-Fq-T70" secondAttribute="top" id="Y2k-3s-9z5"/>
+                            <constraint firstItem="ZhQ-Xe-RYy" firstAttribute="top" secondItem="OMr-tv-1DR" secondAttribute="bottom" id="bII-fg-C3g"/>
                             <constraint firstItem="ZhQ-Xe-RYy" firstAttribute="leading" secondItem="UjL-Fq-T70" secondAttribute="leading" id="bKl-lJ-sec"/>
                             <constraint firstItem="UjL-Fq-T70" firstAttribute="trailing" secondItem="ZhQ-Xe-RYy" secondAttribute="trailing" id="cLw-Gj-gSB"/>
+                            <constraint firstItem="OMr-tv-1DR" firstAttribute="leading" secondItem="UjL-Fq-T70" secondAttribute="leading" id="tay-uV-xpQ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="ZhQ-Xe-RYy" id="NI2-Jl-ifH"/>
+                        <outlet property="searchBar" destination="OMr-tv-1DR" id="oF3-ZX-BRS"/>
                         <outlet property="spinner" destination="p3T-Mr-dEo" id="mqT-7F-7M3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxj-rH-Sqd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="68"/>
+            <point key="canvasLocation" x="63.768115942028992" y="67.633928571428569"/>
         </scene>
     </scenes>
     <resources>
