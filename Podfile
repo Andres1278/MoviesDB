@@ -8,5 +8,6 @@ target 'MoviesDB' do
   # Pods for MoviesDB
 
 pod 'RealmSwift'
+pod 'Cosmos', '~> 23.0'
 
 end

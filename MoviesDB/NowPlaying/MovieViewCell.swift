@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cosmos
 import Alamofire
 import AlamofireImage
 
@@ -15,6 +16,7 @@ class MovieViewCell: UICollectionViewCell {
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var voteLabel: UILabel!
     @IBOutlet weak var posterView: UIImageView!
+    @IBOutlet weak var raitingView: CosmosView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +31,6 @@ class MovieViewCell: UICollectionViewCell {
     
     func configure(with movie: Movie) {
         titeLabel.text = movie.title
-        languageLabel.text = movie.original_language ?? "EN"
         guard let url = movie.posterUrl(), let raiting = movie.voteAverage else {
             return
         }
@@ -54,11 +55,13 @@ class MovieViewCell: UICollectionViewCell {
 //            }
 //        }
         
-        voteLabel.text = "\(raiting)"
+        raitingView.rating = raiting / 2
         
     }
     
     func setupUI() {
+        titeLabel.UILableTextShadow(textColor: .white)
+        raitingView.settings.updateOnTouch = false
         posterView.layer.cornerRadius = 15
         let gradient = CAGradientLayer()
         gradient.frame = posterView.bounds
@@ -66,5 +69,10 @@ class MovieViewCell: UICollectionViewCell {
         gradient.opacity = 0.5
         posterView.layer.insertSublayer(gradient, at: 0)
     }
+    
+    override public func prepareForReuse() {
+         // Ensures the reused cosmos view is as good as new
+         raitingView.prepareForReuse()
+       }
 
 }
