@@ -11,6 +11,7 @@ import RealmSwift
 import UIKit
 
 class DetailLocalDataManager:DetailLocalDataManagerInputProtocol {
+
     
     lazy var realm:Realm = {
         return try! Realm()
@@ -19,7 +20,10 @@ class DetailLocalDataManager:DetailLocalDataManagerInputProtocol {
     
     func saveLocalMovieInfo(with movie: LocalInfoMovie) {
         save(with: movie)
-        getInfo(with: movie.id)
+    }
+    
+    func getLocalMovieInfo(with id: Int) {
+        getInfo(with: id)
     }
     
     func save(with movie: LocalInfoMovie) {
@@ -29,14 +33,15 @@ class DetailLocalDataManager:DetailLocalDataManagerInputProtocol {
         movieToSave.raitingPersonal = movie.raitingPersonal
         print("---Save Local Movie Info: \(movieToSave)------")
         try! realm.write {
-            realm.add(movie, update: .modified)
+            realm.add(movieToSave.self, update: .modified)
         }
     }
     
     func getInfo(with id: Int) {
-        let movies = realm.objects(LocalInfoMovie.self).filter("id = %@", id)
+        let movies = realm.objects(LocalInfoMovie.self)
         for movie in movies {
             if id == movie.id {
+                self.localRequestHandler?.getLocalInfoData(with: movie)
                 print("---- MOVIE GET ----- \(movie)")
             }
         }

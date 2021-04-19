@@ -44,7 +44,8 @@ class DetailView: UIViewController {
         presenter?.viewDidLoad()
         setObservers()
         guard let localID = id else { return }
-        presenter?.getMovieDetail(with: localID )
+        presenter?.getMovieDetail(with: localID)
+        presenter?.getMovieLocalInfo(with: localID)
     }
     
     func setObservers() {
@@ -124,9 +125,9 @@ extension DetailView: DetailViewProtocol {
         }
     }
     
-    func updateFavoriteState(with value: Bool) {
-        favButton.setImage( UIImage(systemName: value ? "heart.fill" : "heart"), for: .normal)
-        print("FavoriteUpdate")
+    func setLocalDataInfoToview(with data: LocalInfoMovie) {
+        favButton.setImage( UIImage(systemName: data.favorite ? "heart.fill" : "heart"), for: .normal)
+        raitingView.rating = data.raitingPersonal
     }
     
     func starAndShowSpinner() {

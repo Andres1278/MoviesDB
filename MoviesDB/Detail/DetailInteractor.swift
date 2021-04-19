@@ -10,7 +10,6 @@ import Foundation
 
 class DetailInteractor: DetailInteractorInputProtocol {
 
-
     // MARK: Properties
     weak var presenter: DetailInteractorOutputProtocol?
     var localDatamanager: DetailLocalDataManagerInputProtocol?
@@ -24,19 +23,21 @@ class DetailInteractor: DetailInteractorInputProtocol {
         localDatamanager?.saveLocalMovieInfo(with: movie)
     }
     
-    
-    
-}
-
-extension DetailInteractor: DetailLocalDataManagerInputProtocol {
-    func getFavoriteState(with value: Bool) {
-        presenter?.interactorGetFavoriteToPresenter(with: value)
+    func getMovieLocalInfo(with id: Int) {
+        localDatamanager?.getLocalMovieInfo(with: id)
     }
+    
+
+    
 }
 
-extension DetailInteractor: DetailRemoteDataManagerOutputProtocol {
+extension DetailInteractor: DetailRemoteDataManagerOutputProtocol, DetailLocalDataManagerOutputProtocol {
     // TODO: Implement use case methods
     func callBackDataToInteractor(with data: MovieDetail) {
         presenter?.interactorCallBackToPresenter(with: data)
+    }
+    
+    func getLocalInfoData(with data: LocalInfoMovie) {
+        presenter?.interactorGetLocalInfoToPresenter(with: data)
     }
 }

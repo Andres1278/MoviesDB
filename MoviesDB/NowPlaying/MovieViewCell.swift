@@ -13,8 +13,6 @@ import AlamofireImage
 class MovieViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titeLabel: UILabel!
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var voteLabel: UILabel!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var raitingView: CosmosView!
     
@@ -63,6 +61,7 @@ class MovieViewCell: UICollectionViewCell {
         titeLabel.UILableTextShadow(textColor: .white)
         raitingView.settings.updateOnTouch = false
         posterView.layer.cornerRadius = 15
+        raitingView.settings.fillMode = .precise
         let gradient = CAGradientLayer()
         gradient.frame = posterView.bounds
         gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]

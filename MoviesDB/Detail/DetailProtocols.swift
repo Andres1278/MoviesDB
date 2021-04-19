@@ -16,7 +16,7 @@ protocol DetailViewProtocol: class {
     func starAndShowSpinner()
     func stopAndHideSpinner()
     func showFullMovieDetail(with movie: MovieDetail)
-    func updateFavoriteState(with value: Bool)
+    func setLocalDataInfoToview(with data: LocalInfoMovie)
 }
 
 protocol DetailWireFrameProtocol: class {
@@ -33,12 +33,13 @@ protocol DetailPresenterProtocol: class {
     func viewDidLoad()
     func getMovieDetail(with id: Int)
     func saveLocalMovieInfo(with info: LocalInfoMovie)
+    func getMovieLocalInfo(with id: Int)
 }
 
 protocol DetailInteractorOutputProtocol: class {
 // INTERACTOR -> PRESENTER
     func interactorCallBackToPresenter(with data: MovieDetail)
-    func interactorGetFavoriteToPresenter(with value: Bool)
+    func interactorGetLocalInfoToPresenter(with value: LocalInfoMovie)
 }
 
 protocol DetailInteractorInputProtocol: class {
@@ -48,6 +49,7 @@ protocol DetailInteractorInputProtocol: class {
     var remoteDatamanager: DetailRemoteDataManagerInputProtocol? { get set }
     func getMovieDetail(from id: Int)
     func saveLocalMovieInfo(with movie: LocalInfoMovie)
+    func getMovieLocalInfo(with id: Int)
 }
 
 protocol DetailDataManagerInputProtocol: class {
@@ -60,19 +62,24 @@ protocol DetailRemoteDataManagerInputProtocol: class {
     func getMovieDetailData(with id: Int)
 }
 
+protocol DetailLocalDataManagerInputProtocol: class {
+    // INTERACTOR -> LOCALDATAMANAGER
+    var localRequestHandler: DetailLocalDataManagerOutputProtocol? { get set }
+    func saveLocalMovieInfo(with movie: LocalInfoMovie)
+    func getLocalMovieInfo(with id: Int)
+}
+
 //DetailRemoteDataManagerOutputProtocol
 
 protocol DetailRemoteDataManagerOutputProtocol: class {
     // REMOTEDATAMANAGER -> INTERACTOR
     func callBackDataToInteractor(with data: MovieDetail)
 }
-
-protocol DetailLocalDataManagerInputProtocol: class {
-    // INTERACTOR -> LOCALDATAMANAGER
-    func saveLocalMovieInfo(with movie: LocalInfoMovie)
-}
-
 protocol DetailLocalDataManagerOutputProtocol {
     // LOCALDATAMANAGER -> INTERACTOR
-    func getFavoriteState(with value: Bool)
+    func getLocalInfoData(with data: LocalInfoMovie)
 }
+
+
+
+
