@@ -42,8 +42,8 @@ class DetailView: UIViewController {
         super.viewDidLoad()
         setupUI()
         presenter?.viewDidLoad()
-        setObservers()
         guard let localID = id else { return }
+        setObservers()
         presenter?.getMovieDetail(with: localID)
         presenter?.getMovieLocalInfo(with: localID)
     }
@@ -52,8 +52,8 @@ class DetailView: UIViewController {
         
         favButton.rx.tap.bind {
             self.isFavoriteMovie.toggle()
-            self.favButton.setImage( UIImage(systemName: self.isFavoriteMovie ? "heart.fill" : "heart"), for: .normal)
             self.saveMovieLocalInfo()
+            self.presenter?.getMovieLocalInfo(with: self.id!)
         }.disposed(by: disposeBag)
         
         raitingView.didTouchCosmos = { personalRaiting in
