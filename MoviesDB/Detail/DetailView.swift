@@ -35,6 +35,8 @@ class DetailView: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var raitingView: CosmosView!
     @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var rateLocalLabel: UILabel!
+    @IBOutlet weak var favoriteLabel: UILabel!
     
     // MARK: Lifecycle
 
@@ -83,6 +85,8 @@ class DetailView: UIViewController {
         gradient.opacity = 0.7
         posterView.layer.insertSublayer(gradient, at: 0)
         movieTitleLabel.UILableTextShadow(textColor: .white)
+        rateLocalLabel.UILableTextShadow(textColor: .white)
+        favoriteLabel.UILableTextShadow(textColor: .white)
         tagLine.UILableTextShadow(textColor: .white)
         cardView.layer.shadowColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
         cardView.layer.shadowRadius = 3
