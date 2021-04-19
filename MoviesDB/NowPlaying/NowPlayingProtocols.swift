@@ -32,6 +32,7 @@ protocol NowPlayingPresenterProtocol: class {
     
     func viewDidLoadViper()
     func showDetailView(with movie: Movie)
+    func loadNextPage(from page: Int)
 }
 
 protocol NowPlayingInteractorOutputProtocol: class {
@@ -46,6 +47,7 @@ protocol NowPlayingInteractorInputProtocol: class {
     var remoteDatamanager: NowPlayingRemoteDataManagerInputProtocol? { get set }
     
     func getRemoteData()
+    func getNextPage(from page: Int)
 }
 
 protocol NowPlayingDataManagerInputProtocol: class {
@@ -56,6 +58,7 @@ protocol NowPlayingRemoteDataManagerInputProtocol: class {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: NowPlayingRemoteDataManagerOutputProtocol? { get set }
     func getNowPlayingData()
+    func getNextPage(from page: Int)
 
 }
 

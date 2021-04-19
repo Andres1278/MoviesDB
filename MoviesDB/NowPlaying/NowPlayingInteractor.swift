@@ -19,6 +19,11 @@ class NowPlayingInteractor: NowPlayingInteractorInputProtocol {
     func getRemoteData() {
         remoteDatamanager?.getNowPlayingData()
     }
+    
+    func getNextPage(from page: Int) {
+        remoteDatamanager?.getNextPage(from: page)
+    }
+    
 }
 
 extension NowPlayingInteractor: NowPlayingRemoteDataManagerOutputProtocol {

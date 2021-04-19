@@ -46,7 +46,7 @@ class NowPlayingController: UIViewController {
             return
         }
         isLoadingPage = true
-//        presenter?.loadNextPage(from: currentPage)
+            presenter?.loadNextPage(from: currentPage)
     }
 }
 
@@ -58,6 +58,9 @@ extension NowPlayingController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieViewCell
+        if indexPath.row == filtered.count - 1 {
+           loadNextPage()
+        }
         cell.configure(with: filtered[indexPath.row])
         return cell
     }
@@ -75,8 +78,12 @@ extension NowPlayingController: UICollectionViewDelegate, UICollectionViewDataSo
 
 extension NowPlayingController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let text = searchBar.text else { return }
-        applyFilter(with: text)
+        if searchText.isEmpty {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                searchBar.resignFirstResponder()
+            }
+        }
+        applyFilter(with: searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -105,8 +112,8 @@ extension NowPlayingController: NowPlayingViewProtocol {
    
     
     func presenterCallBackToView(with data: MovieQueryResponse<Movie>) {
-        isLoadingPage = false
         response = data
+        isLoadingPage = false
         moviesToShow.append(contentsOf: data.results)
         applyFilter(with: self.currentFilter ?? "")
         totalPages = data.total_pages

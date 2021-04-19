@@ -44,7 +44,7 @@ class UpcomingView: UIViewController {
             return
         }
         isLoadingPage = true
-//        presenter?.loadNextPage(from: currentPage)
+        presenter?.loadNextPage(from: currentPage)
     }
 }
 
@@ -104,8 +104,12 @@ extension UpcomingView: UICollectionViewDelegate, UICollectionViewDataSource, UI
 extension UpcomingView: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let text = searchBar.text else { return }
-        applyFilter(with: text)
+        if searchText.isEmpty {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                searchBar.resignFirstResponder()
+            }
+        }
+        applyFilter(with: searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

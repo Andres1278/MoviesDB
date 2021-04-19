@@ -31,6 +31,7 @@ protocol UpcomingPresenterProtocol: class {
     
     func viewDidLoad()
     func showDetailView(with movie: Movie)
+    func loadNextPage(from page: Int)
 }
 
 protocol UpcomingInteractorOutputProtocol: class {
@@ -44,6 +45,7 @@ protocol UpcomingInteractorInputProtocol: class {
     var localDatamanager: UpcomingLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: UpcomingRemoteDataManagerInputProtocol? { get set }
     func getRemoteData()
+    func getNextPage(from page: Int)
 }
 
 protocol UpcomingDataManagerInputProtocol: class {
@@ -54,6 +56,8 @@ protocol UpcomingRemoteDataManagerInputProtocol: class {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: UpcomingRemoteDataManagerOutputProtocol? { get set }
     func getUpcomingData()
+    
+    func getNextPage(from page: Int)
 }
 
 protocol UpcomingRemoteDataManagerOutputProtocol: class {

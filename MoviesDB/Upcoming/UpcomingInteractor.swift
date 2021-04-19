@@ -19,6 +19,10 @@ class UpcomingInteractor: UpcomingInteractorInputProtocol {
         remoteDatamanager?.getUpcomingData()
     }
     
+    func getNextPage(from page: Int) {
+        remoteDatamanager?.getNextPage(from: page)
+    }
+    
 }
 
 extension UpcomingInteractor: UpcomingRemoteDataManagerOutputProtocol {

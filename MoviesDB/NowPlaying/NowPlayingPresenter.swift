@@ -19,7 +19,7 @@ class NowPlayingPresenter  {
 }
 
 extension NowPlayingPresenter: NowPlayingPresenterProtocol {
-  
+    
     // TODO: implement presenter methods
     func viewDidLoadViper() {
         interactor?.getRemoteData()
@@ -31,6 +31,11 @@ extension NowPlayingPresenter: NowPlayingPresenterProtocol {
         wireFrame?.presentDetailView(from: self.view!, with: Movie)
     }
     
+    func loadNextPage(from page: Int) {
+        view?.starAndShowSpinner()
+        interactor?.getNextPage(from: page)
+    }
+    
 }
 
 extension NowPlayingPresenter: NowPlayingInteractorOutputProtocol {
@@ -38,10 +43,5 @@ extension NowPlayingPresenter: NowPlayingInteractorOutputProtocol {
         view?.presenterCallBackToView(with: data)
         view?.stopAndHideSpinner()
     }
-    
-    
-    
-   
-    
-    // TODO: implement interactor output methods
+
 }

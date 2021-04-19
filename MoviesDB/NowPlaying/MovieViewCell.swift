@@ -34,6 +34,7 @@ class MovieViewCell: UICollectionViewCell {
             return
         }
         
+//        MARK: GET IMAGE WITH ALAMOFIRE
         AF.request(url).responseImage { [weak self] response in
             if case .success(let image) = response.result {
                 self?.posterView.image = image
@@ -41,6 +42,7 @@ class MovieViewCell: UICollectionViewCell {
             
         }
         
+//        MARK: GET IMAGE WITHOUT ALAMOFIRE
 //        DispatchQueue.init(label: "imageDownload").async { [weak self] in
 //            do {
 //                let data = try Data(contentsOf: url)
@@ -65,12 +67,4 @@ class MovieViewCell: UICollectionViewCell {
         posterView.layer.insertSublayer(gradient, at: 0)
     }
 
-    
-//    let url = pokemon.sprites.front_default
-//    do {
-//        let data = try Data(contentsOf: url)
-//        self.imageView.image = UIImage(data: data)
-//    } catch {
-//        print("Can't find the image from url \(error.localizedDescription)")
-//    }
 }

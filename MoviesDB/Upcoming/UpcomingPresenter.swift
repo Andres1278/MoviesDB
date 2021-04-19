@@ -18,6 +18,7 @@ class UpcomingPresenter  {
 }
 
 extension UpcomingPresenter: UpcomingPresenterProtocol {
+
     // TODO: implement presenter methods
     func viewDidLoad() {
         interactor?.getRemoteData()
@@ -26,6 +27,11 @@ extension UpcomingPresenter: UpcomingPresenterProtocol {
     
     func showDetailView(with movie: Movie) {
         wireFrame?.presentDetailView(from: self.view!, with: movie)
+    }
+    
+    func loadNextPage(from page: Int) {
+        view?.starAndShowSpinner()
+        interactor?.getNextPage(from: page)
     }
     
 }
