@@ -32,7 +32,7 @@ protocol DetailPresenterProtocol: class {
     var movie: Movie? { get set }
     func viewDidLoad()
     func getMovieDetail(with id: Int)
-    func saveFavorite(with value: Bool)
+    func saveLocalMovieInfo(with info: LocalInfoMovie)
 }
 
 protocol DetailInteractorOutputProtocol: class {
@@ -47,7 +47,7 @@ protocol DetailInteractorInputProtocol: class {
     var localDatamanager: DetailLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: DetailRemoteDataManagerInputProtocol? { get set }
     func getMovieDetail(from id: Int)
-    func saveFavorite(with value: Bool)
+    func saveLocalMovieInfo(with movie: LocalInfoMovie)
 }
 
 protocol DetailDataManagerInputProtocol: class {
@@ -69,7 +69,7 @@ protocol DetailRemoteDataManagerOutputProtocol: class {
 
 protocol DetailLocalDataManagerInputProtocol: class {
     // INTERACTOR -> LOCALDATAMANAGER
-    func saveFavorite(with value: Bool)
+    func saveLocalMovieInfo(with movie: LocalInfoMovie)
 }
 
 protocol DetailLocalDataManagerOutputProtocol {

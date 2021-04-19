@@ -19,6 +19,7 @@ class DetailView: UIViewController {
     var id: Int?
     private let disposeBag = DisposeBag()
     var isFavoriteMovie = false
+    var raitingPersonal: Double? = 0
     
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -51,12 +52,22 @@ class DetailView: UIViewController {
         favButton.rx.tap.bind {
             self.isFavoriteMovie.toggle()
             self.favButton.setImage( UIImage(systemName: self.isFavoriteMovie ? "heart.fill" : "heart"), for: .normal)
-            self.presenter?.saveFavorite(with: self.isFavoriteMovie )
+            self.saveMovieLocalInfo()
         }.disposed(by: disposeBag)
         
         raitingView.didTouchCosmos = { personalRaiting in
-            print("my raiting:\(personalRaiting)")
-            
+            self.raitingPersonal = self.raitingView.rating
+            self.saveMovieLocalInfo()
+        }
+    }
+    
+    func saveMovieLocalInfo() {
+        if let movieID = self.id, let raiting = self.raitingPersonal {
+            let movieInfo = LocalInfoMovie()
+            movieInfo.favorite = self.isFavoriteMovie
+            movieInfo.id = movieID
+            movieInfo.raitingPersonal = raiting
+            self.presenter?.saveLocalMovieInfo(with: movieInfo)
         }
     }
     
@@ -115,6 +126,7 @@ extension DetailView: DetailViewProtocol {
     
     func updateFavoriteState(with value: Bool) {
         favButton.setImage( UIImage(systemName: value ? "heart.fill" : "heart"), for: .normal)
+        print("FavoriteUpdate")
     }
     
     func starAndShowSpinner() {

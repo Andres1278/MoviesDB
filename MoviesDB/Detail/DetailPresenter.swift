@@ -26,15 +26,17 @@ extension DetailPresenter: DetailPresenterProtocol {
         if let movieReceived = movie {
             view?.showMovieDetail(with: movieReceived)
         }
+
     }
     func getMovieDetail(with id: Int) {
         interactor?.getMovieDetail(from: id)
         view?.starAndShowSpinner()
     }
     
-    func saveFavorite(with value: Bool) {
-        interactor?.saveFavorite(with: value)
+    func saveLocalMovieInfo(with info: LocalInfoMovie) {
+        interactor?.saveLocalMovieInfo(with: info)
     }
+    
     
 }
 

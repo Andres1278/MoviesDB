@@ -9,7 +9,7 @@
 import Foundation
 
 class DetailInteractor: DetailInteractorInputProtocol {
-    
+
 
     // MARK: Properties
     weak var presenter: DetailInteractorOutputProtocol?
@@ -20,9 +20,11 @@ class DetailInteractor: DetailInteractorInputProtocol {
         remoteDatamanager?.getMovieDetailData(with: id)
     }
     
-    func saveFavorite(with value: Bool) {
-        localDatamanager?.saveFavorite(with: value)
+    func saveLocalMovieInfo(with movie: LocalInfoMovie) {
+        localDatamanager?.saveLocalMovieInfo(with: movie)
     }
+    
+    
     
 }
 
