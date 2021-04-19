@@ -31,13 +31,24 @@ extension DetailPresenter: DetailPresenterProtocol {
         interactor?.getMovieDetail(from: id)
         view?.starAndShowSpinner()
     }
+    
+    func saveFavorite(with value: Bool) {
+        interactor?.saveFavorite(with: value)
+    }
+    
 }
 
 extension DetailPresenter: DetailInteractorOutputProtocol {
+
     // TODO: implement interactor output methods
     func interactorCallBackToPresenter(with data: MovieDetail) {
         view?.stopAndHideSpinner()
         view?.showFullMovieDetail(with: data)
     }
+    
+    func interactorGetFavoriteToPresenter(with value: Bool) {
+        view?.updateFavoriteState(with: value)
+    }
+    
     
 }

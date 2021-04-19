@@ -16,6 +16,7 @@ protocol DetailViewProtocol: class {
     func starAndShowSpinner()
     func stopAndHideSpinner()
     func showFullMovieDetail(with movie: MovieDetail)
+    func updateFavoriteState(with value: Bool)
 }
 
 protocol DetailWireFrameProtocol: class {
@@ -31,11 +32,13 @@ protocol DetailPresenterProtocol: class {
     var movie: Movie? { get set }
     func viewDidLoad()
     func getMovieDetail(with id: Int)
+    func saveFavorite(with value: Bool)
 }
 
 protocol DetailInteractorOutputProtocol: class {
 // INTERACTOR -> PRESENTER
     func interactorCallBackToPresenter(with data: MovieDetail)
+    func interactorGetFavoriteToPresenter(with value: Bool)
 }
 
 protocol DetailInteractorInputProtocol: class {
@@ -44,6 +47,7 @@ protocol DetailInteractorInputProtocol: class {
     var localDatamanager: DetailLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: DetailRemoteDataManagerInputProtocol? { get set }
     func getMovieDetail(from id: Int)
+    func saveFavorite(with value: Bool)
 }
 
 protocol DetailDataManagerInputProtocol: class {
@@ -56,6 +60,8 @@ protocol DetailRemoteDataManagerInputProtocol: class {
     func getMovieDetailData(with id: Int)
 }
 
+//DetailRemoteDataManagerOutputProtocol
+
 protocol DetailRemoteDataManagerOutputProtocol: class {
     // REMOTEDATAMANAGER -> INTERACTOR
     func callBackDataToInteractor(with data: MovieDetail)
@@ -63,4 +69,10 @@ protocol DetailRemoteDataManagerOutputProtocol: class {
 
 protocol DetailLocalDataManagerInputProtocol: class {
     // INTERACTOR -> LOCALDATAMANAGER
+    func saveFavorite(with value: Bool)
+}
+
+protocol DetailLocalDataManagerOutputProtocol {
+    // LOCALDATAMANAGER -> INTERACTOR
+    func getFavoriteState(with value: Bool)
 }

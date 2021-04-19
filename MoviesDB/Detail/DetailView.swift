@@ -8,12 +8,17 @@
 
 import Foundation
 import UIKit
+import Cosmos
+import RxSwift
+import RxCocoa
 
 class DetailView: UIViewController {
 
     // MARK: Properties
     var presenter: DetailPresenterProtocol?
     var id: Int?
+    private let disposeBag = DisposeBag()
+    var isFavoriteMovie = false
     
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -27,6 +32,8 @@ class DetailView: UIViewController {
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var raitingView: CosmosView!
+    @IBOutlet weak var favButton: UIButton!
     
     // MARK: Lifecycle
 
@@ -34,14 +41,30 @@ class DetailView: UIViewController {
         super.viewDidLoad()
         setupUI()
         presenter?.viewDidLoad()
+        setObservers()
         guard let localID = id else { return }
         presenter?.getMovieDetail(with: localID )
+    }
+    
+    func setObservers() {
+        
+        favButton.rx.tap.bind {
+            self.isFavoriteMovie.toggle()
+            self.favButton.setImage( UIImage(systemName: self.isFavoriteMovie ? "heart.fill" : "heart"), for: .normal)
+            self.presenter?.saveFavorite(with: self.isFavoriteMovie )
+        }.disposed(by: disposeBag)
+        
+        raitingView.didTouchCosmos = { personalRaiting in
+            print("my raiting:\(personalRaiting)")
+            
+        }
     }
     
     func setupUI() {
         cardView.layer.cornerRadius = 25
         cardView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.78)
         popularitySlider.setThumbImage(UIImage(systemName: "bolt.circle.fill"), for: .normal)
+        raitingView.settings.fillMode = .precise
         let gradient = CAGradientLayer()
         gradient.frame = posterView.bounds
         gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
@@ -88,6 +111,10 @@ extension DetailView: DetailViewProtocol {
             let gendersString = gendersArray.joined(separator: ", ")
             genderLabel.text = gendersString
         }
+    }
+    
+    func updateFavoriteState(with value: Bool) {
+        favButton.setImage( UIImage(systemName: value ? "heart.fill" : "heart"), for: .normal)
     }
     
     func starAndShowSpinner() {
