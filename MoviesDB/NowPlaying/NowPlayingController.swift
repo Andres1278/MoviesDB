@@ -25,12 +25,14 @@ class NowPlayingController: UIViewController {
         spinner.startAnimating() 
         collectioView.delegate = self
         collectioView.dataSource = self
+//        let flowLayout = collectioView.collectionViewLayout as? UICollectionViewFlowLayout
+//        flowLayout?.estimatedItemSize = CGSize(width: 1, height: 1)
         presenter?.viewDidLoadViper()
         collectioView.register(UINib(nibName: "MovieViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
     }
 }
 
-extension NowPlayingController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension NowPlayingController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return moviesToShow.count
@@ -49,7 +51,7 @@ extension NowPlayingController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = ((screenSize.width - (10 * (numberOfColumns - 1) ) - 30) / numberOfColumns) - 1
-        return CGSize(width: cellWidth.rounded() , height: 1.6 * cellWidth.rounded())
+        return CGSize(width: cellWidth, height: 1.6 * cellWidth.rounded())
     }
 }
 

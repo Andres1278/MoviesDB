@@ -63,7 +63,7 @@ extension DetailView: DetailViewProtocol {
         setImage(with: movie)
         movieTitleLabel.text = movie.title
         movieOverview.text = movie.overview
-        languageLabel.text = movie.original_language
+        languageLabel.text = movie.original_language ?? "en"
         
         guard let popularityValue = movie.popularity, let raiting = movie.vote_average else {
             return

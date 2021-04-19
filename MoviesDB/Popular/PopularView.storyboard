@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,46 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search for a Movie" translatesAutoresizingMaskIntoConstraints="NO" id="f05-Hh-hRQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="oEC-TK-TEL" id="cEk-Tb-Urg"/>
+                                </connections>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yhn-8J-2US">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oXJ-TZ-lrm">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oXJ-TZ-lrm">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hGi-WK-4jM">
-                                        <rect key="frame" x="0.0" y="50" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iRD-QW-40I">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SearchBar" id="7mk-NS-w4r" customClass="CollectionViewSearch" customModule="MoviesDB" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search for a Movie" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f05-Hh-hRQ">
-                                            <rect key="frame" x="0.0" y="-9" width="414" height="56"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <scopeButtonTitles>
-                                                <string>Title</string>
-                                                <string>Title</string>
-                                            </scopeButtonTitles>
-                                            <connections>
-                                                <outlet property="delegate" destination="oEC-TK-TEL" id="cEk-Tb-Urg"/>
-                                            </connections>
-                                        </searchBar>
-                                    </subviews>
-                                    <connections>
-                                        <outlet property="searchBar" destination="f05-Hh-hRQ" id="Cmg-5n-4qI"/>
-                                    </connections>
-                                </collectionReusableView>
+                                <cells/>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="uzJ-DY-isZ">
                                 <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
@@ -67,16 +47,21 @@
                         <viewLayoutGuide key="safeArea" id="B30-y8-slv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="f05-Hh-hRQ" firstAttribute="trailing" secondItem="B30-y8-slv" secondAttribute="trailing" id="2fF-gc-vqk"/>
                             <constraint firstItem="yhn-8J-2US" firstAttribute="leading" secondItem="B30-y8-slv" secondAttribute="leading" id="2iO-Eo-4dc"/>
+                            <constraint firstItem="yhn-8J-2US" firstAttribute="top" secondItem="f05-Hh-hRQ" secondAttribute="bottom" id="4zO-dW-wBk"/>
                             <constraint firstItem="B30-y8-slv" firstAttribute="bottom" secondItem="yhn-8J-2US" secondAttribute="bottom" id="N4w-0r-7Mr"/>
+                            <constraint firstItem="f05-Hh-hRQ" firstAttribute="leading" secondItem="B30-y8-slv" secondAttribute="leading" id="RbE-y9-Tlj"/>
                             <constraint firstItem="B30-y8-slv" firstAttribute="trailing" secondItem="yhn-8J-2US" secondAttribute="trailing" id="Ykl-AO-jnl"/>
                             <constraint firstItem="uzJ-DY-isZ" firstAttribute="centerX" secondItem="B30-y8-slv" secondAttribute="centerX" id="aBP-i0-4wD"/>
-                            <constraint firstItem="yhn-8J-2US" firstAttribute="top" secondItem="B30-y8-slv" secondAttribute="top" id="azw-69-Cd3"/>
+                            <constraint firstItem="yhn-8J-2US" firstAttribute="bottom" secondItem="B30-y8-slv" secondAttribute="bottom" id="cfv-9X-gd2"/>
+                            <constraint firstItem="f05-Hh-hRQ" firstAttribute="top" secondItem="B30-y8-slv" secondAttribute="top" id="dAx-rp-pHM"/>
                             <constraint firstItem="uzJ-DY-isZ" firstAttribute="centerY" secondItem="B30-y8-slv" secondAttribute="centerY" id="e80-SB-mym"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="yhn-8J-2US" id="fPf-HH-cTx"/>
+                        <outlet property="searchBar" destination="f05-Hh-hRQ" id="vev-aL-kuC"/>
                         <outlet property="spinner" destination="uzJ-DY-isZ" id="oAG-V7-5K0"/>
                     </connections>
                 </viewController>

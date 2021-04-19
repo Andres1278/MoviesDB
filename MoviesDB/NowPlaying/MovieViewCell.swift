@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class MovieViewCell: UICollectionViewCell {
 
@@ -16,24 +18,40 @@ class MovieViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
         // Initialization code
+        NSLayoutConstraint.activate([
+                                        contentView.leftAnchor.constraint(equalTo: leftAnchor),
+                                        contentView.rightAnchor.constraint(equalTo: rightAnchor),
+                                        contentView.topAnchor.constraint(equalTo: topAnchor),
+                                        contentView.bottomAnchor.constraint(equalTo: bottomAnchor)])
     }
     
     func configure(with movie: Movie) {
-        setupUI()
         titeLabel.text = movie.title
         languageLabel.text = movie.original_language ?? "EN"
-        
-        
         guard let url = movie.posterUrl(), let raiting = movie.voteAverage else {
             return
         }
-        do {
-            let data = try Data(contentsOf: url)
-            self.posterView.image = UIImage(data: data)
-        } catch {
-            print("Can't find the image from url \(error.localizedDescription)")
+        
+        AF.request(url).responseImage { [weak self] response in
+            if case .success(let image) = response.result {
+                self?.posterView.image = image
+            }
+            
         }
+        
+//        DispatchQueue.init(label: "imageDownload").async { [weak self] in
+//            do {
+//                let data = try Data(contentsOf: url)
+//                DispatchQueue.main.async {
+//                    self?.posterView.image = UIImage(data: data)
+//                }
+//            } catch {
+//                print("Can't find the image from url \(error.localizedDescription)")
+//            }
+//        }
+        
         voteLabel.text = "\(raiting)"
         
     }

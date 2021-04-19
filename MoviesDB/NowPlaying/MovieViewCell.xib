@@ -19,10 +19,6 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XeH-dm-tB0">
                         <rect key="frame" x="0.0" y="0.0" width="199" height="300"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="300" id="SJ0-S6-RPZ"/>
-                            <constraint firstAttribute="width" constant="199" id="viy-zv-YCg"/>
-                        </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1OY-r6-JQf">
                         <rect key="frame" x="19.5" y="203" width="160" height="90"/>
@@ -101,7 +97,7 @@
                 <outlet property="titeLabel" destination="S9d-H3-DeG" id="Y3V-6s-65m"/>
                 <outlet property="voteLabel" destination="PME-PV-4Dc" id="1B9-hG-wZR"/>
             </connections>
-            <point key="canvasLocation" x="171.73913043478262" y="48.214285714285715"/>
+            <point key="canvasLocation" x="-1" y="44"/>
         </collectionViewCell>
     </objects>
 </document>
