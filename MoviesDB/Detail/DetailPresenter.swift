@@ -29,12 +29,14 @@ extension DetailPresenter: DetailPresenterProtocol {
     }
     func getMovieDetail(with id: Int) {
         interactor?.getMovieDetail(from: id)
+        view?.starAndShowSpinner()
     }
 }
 
 extension DetailPresenter: DetailInteractorOutputProtocol {
     // TODO: implement interactor output methods
     func interactorCallBackToPresenter(with data: MovieDetail) {
+        view?.stopAndHideSpinner()
         view?.showFullMovieDetail(with: data)
     }
     

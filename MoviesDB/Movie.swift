@@ -49,6 +49,7 @@ struct MovieDetail: Codable {
     let genres: [Gender]?
     let original_language: String?
     let poster_path: String?
+    let title: String?
     
     func posterUrl() -> URL? {
         return URL(string: "\(API.imagesBaseURL)\(poster_path ?? "")")
