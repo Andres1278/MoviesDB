@@ -147,12 +147,7 @@ extension DetailView: DetailViewProtocol {
         guard let url = movie.posterUrl() else {
             return
         }
-        do {
-            let data = try Data(contentsOf: url)
-            self.posterView.image = UIImage(data: data)
-        } catch {
-            print("Can't find the image from url \(error.localizedDescription)")
-        }
+        posterView.setImage(with: url)
     }
 
     

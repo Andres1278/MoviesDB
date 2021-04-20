@@ -24,6 +24,7 @@
 		EB08CE3C262BD1F6003F35B5 /* UpcomingWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08CE35262BD1F6003F35B5 /* UpcomingWireFrame.swift */; };
 		EB08CE40262BD222003F35B5 /* UpcomingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB08CE3F262BD222003F35B5 /* UpcomingView.storyboard */; };
 		EB08CE44262BD2AA003F35B5 /* PopularView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB08CE43262BD2AA003F35B5 /* PopularView.storyboard */; };
+		EB35B763262E4F4E00B7AFB9 /* UIImageView+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35B762262E4F4E00B7AFB9 /* UIImageView+Alamofire.swift */; };
 		EB53379D262D37E5000AED82 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = EB53379C262D37E5000AED82 /* AlamofireImage */; };
 		EB5F76D42629E3AB00200961 /* NowPlayingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F76CD2629E3AB00200961 /* NowPlayingPresenter.swift */; };
 		EB5F76D52629E3AB00200961 /* NowPlayingDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F76CE2629E3AB00200961 /* NowPlayingDataManager.swift */; };
@@ -47,7 +48,7 @@
 		EBAF1D3E262BD9530065A367 /* DetailRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF1D37262BD9530065A367 /* DetailRemoteDataManager.swift */; };
 		EBAF1D3F262BD9530065A367 /* DetailWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF1D38262BD9530065A367 /* DetailWireFrame.swift */; };
 		EBAF1D48262BDB8F0065A367 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAF1D47262BDB8F0065A367 /* DetailView.storyboard */; };
-		EBAF1D57262D13EB0065A367 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF1D56262D13EA0065A367 /* Extensions.swift */; };
+		EBAF1D57262D13EB0065A367 /* UILabel+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF1D56262D13EA0065A367 /* UILabel+Shadow.swift */; };
 		EBB77BA22629160300AC2D22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB77BA12629160300AC2D22 /* AppDelegate.swift */; };
 		EBB77BA92629160300AC2D22 /* NowPlayingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB77BA72629160300AC2D22 /* NowPlayingView.storyboard */; };
 		EBB77BAB2629160700AC2D22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB77BAA2629160700AC2D22 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		EB08CE35262BD1F6003F35B5 /* UpcomingWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingWireFrame.swift; sourceTree = "<group>"; };
 		EB08CE3F262BD222003F35B5 /* UpcomingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpcomingView.storyboard; sourceTree = "<group>"; };
 		EB08CE43262BD2AA003F35B5 /* PopularView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopularView.storyboard; sourceTree = "<group>"; };
+		EB35B762262E4F4E00B7AFB9 /* UIImageView+Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Alamofire.swift"; sourceTree = "<group>"; };
 		EB5F76CD2629E3AB00200961 /* NowPlayingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingPresenter.swift; sourceTree = "<group>"; };
 		EB5F76CE2629E3AB00200961 /* NowPlayingDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingDataManager.swift; sourceTree = "<group>"; };
 		EB5F76CF2629E3AB00200961 /* NowPlayingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingProtocols.swift; sourceTree = "<group>"; };
@@ -95,7 +97,7 @@
 		EBAF1D37262BD9530065A367 /* DetailRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRemoteDataManager.swift; sourceTree = "<group>"; };
 		EBAF1D38262BD9530065A367 /* DetailWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWireFrame.swift; sourceTree = "<group>"; };
 		EBAF1D47262BDB8F0065A367 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
-		EBAF1D56262D13EA0065A367 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EBAF1D56262D13EA0065A367 /* UILabel+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Shadow.swift"; sourceTree = "<group>"; };
 		EBB77B9E2629160300AC2D22 /* MoviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB77BA12629160300AC2D22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBB77BA82629160300AC2D22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NowPlayingView.storyboard; sourceTree = "<group>"; };
@@ -182,6 +184,16 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		EB35B768262E51EC00B7AFB9 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				EB08CE2E262BD1CD003F35B5 /* Upcoming */,
+				EB08CE1E262BD1A7003F35B5 /* Popular */,
+				EB5F76CC2629E39A00200961 /* NowPlaying */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
 		EB5F76CC2629E39A00200961 /* NowPlaying */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				EB9FCBDF262BCBC6009988EA /* TabBarWireFrame.swift */,
+				EB35B768262E51EC00B7AFB9 /* Sections */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -256,7 +269,8 @@
 		EBAF1D55262D13D60065A367 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EBAF1D56262D13EA0065A367 /* Extensions.swift */,
+				EBAF1D56262D13EA0065A367 /* UILabel+Shadow.swift */,
+				EB35B762262E4F4E00B7AFB9 /* UIImageView+Alamofire.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,7 +278,6 @@
 		EBB77B952629160300AC2D22 = {
 			isa = PBXGroup;
 			children = (
-				EBB77BAF2629160700AC2D22 /* Info.plist */,
 				EBB77BA02629160300AC2D22 /* MoviesDB */,
 				EBB77B9F2629160300AC2D22 /* Products */,
 				39A3A9D88E17F8C4A0384A2F /* Pods */,
@@ -283,13 +296,11 @@
 		EBB77BA02629160300AC2D22 /* MoviesDB */ = {
 			isa = PBXGroup;
 			children = (
+				EBB77BAF2629160700AC2D22 /* Info.plist */,
 				EBAF1D55262D13D60065A367 /* Extensions */,
 				EBAF1D2F262BD8820065A367 /* Resources */,
 				EBAF1D2A262BD8280065A367 /* SupportFiles */,
 				EBAF1D30262BD89C0065A367 /* TabBar */,
-				EB08CE2E262BD1CD003F35B5 /* Upcoming */,
-				EB08CE1E262BD1A7003F35B5 /* Popular */,
-				EB5F76CC2629E39A00200961 /* NowPlaying */,
 				EBAF1D31262BD9390065A367 /* Detail */,
 				EB35B760262E4BB900B7AFB9 /* Cell */,
 				EB35B761262E4BE600B7AFB9 /* Entity */,
@@ -443,13 +454,14 @@
 				EB08CE37262BD1F6003F35B5 /* UpcomingLocalDataManager.swift in Sources */,
 				EB08CE36262BD1F6003F35B5 /* UpcomingPresenter.swift in Sources */,
 				EB08CE27262BD1C4003F35B5 /* PopularLocalDataManager.swift in Sources */,
-				EBAF1D57262D13EB0065A367 /* Extensions.swift in Sources */,
+				EBAF1D57262D13EB0065A367 /* UILabel+Shadow.swift in Sources */,
 				EB08CE2B262BD1C4003F35B5 /* PopularRemoteDataManager.swift in Sources */,
 				EBAF1D3E262BD9530065A367 /* DetailRemoteDataManager.swift in Sources */,
 				EB5F76D92629E3AB00200961 /* NowPlayingRemoteDataManager.swift in Sources */,
 				EB08CE2A262BD1C4003F35B5 /* PopularView.swift in Sources */,
 				EB08CE38262BD1F6003F35B5 /* UpcomingProtocols.swift in Sources */,
 				EBAF1D39262BD9530065A367 /* DetailPresenter.swift in Sources */,
+				EB35B763262E4F4E00B7AFB9 /* UIImageView+Alamofire.swift in Sources */,
 				EB08CE28262BD1C4003F35B5 /* PopularProtocols.swift in Sources */,
 				EB9FCB78262B1894009988EA /* Movie.swift in Sources */,
 				EB9FCBD4262BBA1D009988EA /* MovieViewCell.swift in Sources */,

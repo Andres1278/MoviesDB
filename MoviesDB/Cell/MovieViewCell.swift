@@ -33,13 +33,8 @@ class MovieViewCell: UICollectionViewCell {
             return
         }
         
-//        MARK: GET IMAGE WITH ALAMOFIRE
-        AF.request(url).responseImage { [weak self] response in
-            if case .success(let image) = response.result {
-                self?.posterView.image = image
-            }
-            
-        }
+//        MARK: GET IMAGE WITH ALAMOFIRE 
+        posterView.setImage(with: url)
         
 //        MARK: GET IMAGE WITHOUT ALAMOFIRE
 //        DispatchQueue.init(label: "imageDownload").async { [weak self] in
